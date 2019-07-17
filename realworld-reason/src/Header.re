@@ -1,5 +1,5 @@
 [@react.component]
-let make = () =>
+let make = () => {
   <div className="navbar navbar-light">
     <div className="container">
       <a className="navbar-brand" href="index.html">
@@ -36,3 +36,4 @@ let make = () =>
       </ul>
     </div>
   </div>;
+};

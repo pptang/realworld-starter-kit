@@ -3,36 +3,53 @@ let s = ReasonReact.string;
 [@react.component]
 let make = () =>
   <div className="settings-page">
-  <div className="container page">
-    <div className="row">
-
-      <div className="col-md-6 offset-md-3 col-xs-12">
-        <h1 className="text-xs-center">{s("Your Settings")}</h1>
-
-        <form>
-          <fieldset>
+    <div className="container page">
+      <div className="row">
+        <div className="col-md-6 offset-md-3 col-xs-12">
+          <h1 className="text-xs-center"> {s("Your Settings")} </h1>
+          <form>
+            <fieldset>
               <fieldset className="form-group">
-                <input className="form-control" type_="text" placeholder="URL of profile picture" />
+                <input
+                  className="form-control"
+                  type_="text"
+                  placeholder="URL of profile picture"
+                />
               </fieldset>
               <fieldset className="form-group">
-                <input className="form-control form-control-lg" type_="text" placeholder="Your Name" />
+                <input
+                  className="form-control form-control-lg"
+                  type_="text"
+                  placeholder="Your Name"
+                />
               </fieldset>
               <fieldset className="form-group">
-                <textarea className="form-control form-control-lg" rows={8} placeholder="Short bio about you"></textarea>
+                <textarea
+                  className="form-control form-control-lg"
+                  rows=8
+                  placeholder="Short bio about you"
+                />
               </fieldset>
               <fieldset className="form-group">
-                <input className="form-control form-control-lg" type_="text" placeholder="Email" />
+                <input
+                  className="form-control form-control-lg"
+                  type_="text"
+                  placeholder="Email"
+                />
               </fieldset>
               <fieldset className="form-group">
-                <input className="form-control form-control-lg" type_="password" placeholder="Password" />
+                <input
+                  className="form-control form-control-lg"
+                  type_="password"
+                  placeholder="Password"
+                />
               </fieldset>
               <button className="btn btn-lg btn-primary pull-xs-right">
                 {s("Update Settings")}
               </button>
-          </fieldset>
-        </form>
+            </fieldset>
+          </form>
+        </div>
       </div>
-
     </div>
-  </div>
-</div>;
+  </div>;

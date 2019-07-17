@@ -1,5 +1,1 @@
-ReactDOMRe.renderToElementWithId(<Header />, "header");
-
-ReactDOMRe.renderToElementWithId(<Home />, "page");
-
-ReactDOMRe.renderToElementWithId(<Footer />, "footer");
+ReactDOMRe.renderToElementWithId(<App />, "app");

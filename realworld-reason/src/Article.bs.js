@@ -7,7 +7,7 @@ function s(prim) {
   return prim;
 }
 
-function make(param) {
+function Article(Props) {
   return React.createElement("div", {
               className: "article-page"
             }, React.createElement("div", {
@@ -139,6 +139,8 @@ function make(param) {
                                           className: "ion-trash-a"
                                         }))))))));
 }
+
+var make = Article;
 
 exports.s = s;
 exports.make = make;

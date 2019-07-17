@@ -3,14 +3,8 @@
 
 var React = require("react");
 var ReactDOMRe = require("reason-react/src/ReactDOMRe.js");
-var Home$ReactHooksTemplate = require("./Home.bs.js");
-var Footer$ReactHooksTemplate = require("./Footer.bs.js");
-var Header$ReactHooksTemplate = require("./Header.bs.js");
+var App$ReactHooksTemplate = require("./App.bs.js");
 
-ReactDOMRe.renderToElementWithId(React.createElement(Header$ReactHooksTemplate.make, { }), "header");
-
-ReactDOMRe.renderToElementWithId(React.createElement(Home$ReactHooksTemplate.make, { }), "page");
-
-ReactDOMRe.renderToElementWithId(React.createElement(Footer$ReactHooksTemplate.make, { }), "footer");
+ReactDOMRe.renderToElementWithId(React.createElement(App$ReactHooksTemplate.make, { }), "app");
 
 /*  Not a pure module */
