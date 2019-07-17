@@ -17,26 +17,26 @@ function Header(Props) {
                           className: "nav-item"
                         }, React.createElement("a", {
                               className: "nav-link active",
-                              href: ""
+                              href: "/#/"
                             }, "Home")), React.createElement("li", {
                           className: "nav-item"
                         }, React.createElement("a", {
                               className: "nav-link",
-                              href: ""
+                              href: "/#/editor"
                             }, React.createElement("i", {
                                   className: "ion-compose"
                                 }), "\u0020", "New Post")), React.createElement("li", {
                           className: "nav-item"
                         }, React.createElement("a", {
                               className: "nav-link",
-                              href: ""
+                              href: "/#/settings"
                             }, React.createElement("i", {
                                   className: "ion-gear-a"
                                 }), "\u0020", "Settings")), React.createElement("li", {
                           className: "nav-item"
                         }, React.createElement("a", {
                               className: "nav-link",
-                              href: ""
+                              href: "/#/register"
                             }, "Sign up")))));
 }
 

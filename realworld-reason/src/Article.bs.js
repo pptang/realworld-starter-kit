@@ -8,6 +8,7 @@ function s(prim) {
 }
 
 function Article(Props) {
+  Props.slug;
   return React.createElement("div", {
               className: "article-page"
             }, React.createElement("div", {
