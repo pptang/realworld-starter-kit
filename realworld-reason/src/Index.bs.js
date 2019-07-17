@@ -3,20 +3,13 @@
 
 var React = require("react");
 var ReactDOMRe = require("reason-react/src/ReactDOMRe.js");
+var Home$ReactHooksTemplate = require("./Home.bs.js");
 var Footer$ReactHooksTemplate = require("./Footer.bs.js");
 var Header$ReactHooksTemplate = require("./Header.bs.js");
-var Component1$ReactHooksTemplate = require("./Component1.bs.js");
-var Component2$ReactHooksTemplate = require("./Component2.bs.js");
 
 ReactDOMRe.renderToElementWithId(React.createElement(Header$ReactHooksTemplate.make, { }), "header");
 
-ReactDOMRe.renderToElementWithId(React.createElement(Component1$ReactHooksTemplate.make, {
-          message: "Hello! Click this text."
-        }), "index1");
-
-ReactDOMRe.renderToElementWithId(React.createElement(Component2$ReactHooksTemplate.make, {
-          greeting: "Hello!"
-        }), "index2");
+ReactDOMRe.renderToElementWithId(React.createElement(Home$ReactHooksTemplate.make, { }), "page");
 
 ReactDOMRe.renderToElementWithId(React.createElement(Footer$ReactHooksTemplate.make, { }), "footer");
 
