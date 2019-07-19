@@ -14,18 +14,34 @@ var EditArticle$ReactHooksTemplate = require("./EditArticle.bs.js");
 
 function App(Props) {
   var url = ReasonReactRouter.useUrl(undefined, /* () */0);
-  console.log(url[/* hash */1]);
-  console.log(url[/* hash */1].split("/"));
   var match = url[/* hash */1].split("/");
   var tmp;
   var exit = 0;
-  if (match.length !== 2) {
-    exit = 1;
+  var len = match.length;
+  if (len !== 2) {
+    if (len !== 3) {
+      exit = 1;
+    } else {
+      var match$1 = match[0];
+      if (match$1 === "") {
+        var match$2 = match[1];
+        if (match$2 === "article") {
+          var article_slug = match[2];
+          tmp = React.createElement(Article$ReactHooksTemplate.make, {
+                slug: article_slug
+              });
+        } else {
+          exit = 1;
+        }
+      } else {
+        exit = 1;
+      }
+    }
   } else {
-    var match$1 = match[0];
-    if (match$1 === "") {
-      var match$2 = match[1];
-      switch (match$2) {
+    var match$3 = match[0];
+    if (match$3 === "") {
+      var match$4 = match[1];
+      switch (match$4) {
         case "article" : 
             tmp = React.createElement(Article$ReactHooksTemplate.make, { });
             break;

@@ -1,7 +1,51 @@
 let s = ReasonReact.string;
 
+type state = {articleList: option(ArticleData.articleList)};
+
+type action =
+  | Loaded(ArticleData.articleList);
+
 [@react.component]
-let make = () =>
+let make = () => {
+  let (state, dispatch) = React.useReducer((_state, action) =>
+  switch (action) {
+  | Loaded(data) => {articleList: Some(data)}
+  }, {articleList: None});
+
+  React.useEffect(() => {
+      ArticleData.fetchArticles(data => dispatch(Loaded(data)))
+      |>ignore;
+    None;
+    });
+
+  let renderArticle = (article: ArticleData.article) =>
+    <div key={article.slug} className="article-preview">
+      <div className="article-meta">
+        <a href="profile.html">
+          <img src={article.author.image} />
+        </a>
+        <div className="info">
+          <a href="" className="author"> {s(article.author.username)} </a>
+          <span className="date"> {s(article.updatedAt)} </span>
+        </div>
+        <button className="btn btn-outline-primary btn-sm pull-xs-right">
+          <i className="ion-heart" />
+          {s(string_of_int(article.favoritesCount))}
+        </button>
+      </div>
+      <a href="" className="preview-link">
+        <h1> {s(article.title)} </h1>
+        <p> {s(article.description)} </p>
+        <span> {s("Read more...")} </span>
+      </a>
+    </div>;
+  let renderArticleList = (articleList: option(ArticleData.articleList)) =>
+    switch (articleList) {
+    | Some(articles) =>
+      <div>{React.array(Belt.Array.map(articles, article => renderArticle(article)))}</div>;
+    | None => ReasonReact.null
+    };
+
   <div className="home-page">
     <div className="banner">
       <div className="container">
@@ -26,50 +70,7 @@ let make = () =>
               </li>
             </ul>
           </div>
-          <div className="article-preview">
-            <div className="article-meta">
-              <a href="profile.html">
-                <img src="http://i.imgur.com/Qr71crq.jpg" />
-              </a>
-              <div className="info">
-                <a href="" className="author"> {s("Eric Simons")} </a>
-                <span className="date"> {s("January 20th")} </span>
-              </div>
-              <button className="btn btn-outline-primary btn-sm pull-xs-right">
-                <i className="ion-heart" />
-                {s("29")}
-              </button>
-            </div>
-            <a href="" className="preview-link">
-              <h1> {s("How to build webapps that scale")} </h1>
-              <p> {s("This is the description for the post.")} </p>
-              <span> {s("Read more...")} </span>
-            </a>
-          </div>
-          <div className="article-preview">
-            <div className="article-meta">
-              <a href="profile.html">
-                <img src="http://i.imgur.com/N4VcUeJ.jpg" />
-              </a>
-              <div className="info">
-                <a href="" className="author"> {s("Albert Pai")} </a>
-                <span className="date"> {s("January 20th")} </span>
-              </div>
-              <button className="btn btn-outline-primary btn-sm pull-xs-right">
-                <i className="ion-heart" />
-                {s("32")}
-              </button>
-            </div>
-            <a href="" className="preview-link">
-              <h1>
-                {s(
-                   "The song you won't ever stop singing. No matter how hard you try.",
-                 )}
-              </h1>
-              <p> {s("This is the description for the post.")} </p>
-              <span> {s("Read more...")} </span>
-            </a>
-          </div>
+          {renderArticleList(state.articleList)}
         </div>
         <div className="col-md-3">
           <div className="sidebar">
@@ -95,3 +96,4 @@ let make = () =>
       </div>
     </div>
   </div>;
+};

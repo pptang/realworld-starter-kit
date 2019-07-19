@@ -16,6 +16,8 @@ let make = () => {
         <li className="nav-item">
           <a className="nav-link" href="/#/editor">
             <i className="ion-compose" />
+            // js| |js is syntax for supporting Unicode characters
+            // https://bucklescript.github.io/docs/en/interop-cheatsheet#string-unicode-interpolation
             {ReasonReact.string({js|\u0020|js})}
             {ReasonReact.string("New Post")}
           </a>
@@ -23,7 +25,6 @@ let make = () => {
         <li className="nav-item">
           <a className="nav-link" href="/#/settings">
             <i className="ion-gear-a" />
-            // XXX: Don't know the meaning of js| |js yet...
             {ReasonReact.string({js|\u0020|js})}
             {ReasonReact.string("Settings")}
           </a>

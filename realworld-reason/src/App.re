@@ -1,8 +1,6 @@
 [@react.component]
 let make = () => {
   let url = ReasonReactRouter.useUrl();
-  Js.log(url.hash)
-  Js.log(Js.String.split("/", url.hash));
   <>
     <Header />
     {switch (Js.String.split("/", url.hash)) {

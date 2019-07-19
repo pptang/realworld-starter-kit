@@ -2,7 +2,7 @@ let s = ReasonReact.string;
 
 [@react.component]
 // TODO: use slug to fetch api
-let make = (~slug) =>
+let make = (~slug=?) =>
   <div className="article-page">
     <div className="banner">
       <div className="container">
